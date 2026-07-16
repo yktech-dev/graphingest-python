@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphingest"
+version = "0.2.0"
+description = "Python SDK for the GraphIngest Orchestrator"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "httpx>=0.25.0",
+    "google-cloud-storage>=2.10.0",
+]
+
+[project.optional-dependencies]
+pydantic = ["pydantic>=2.0.0"]
+serve = [
+    "flask>=3.0",
+    "gunicorn>=21.2",
+]
+langgraph = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pydantic>=2.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["graphingest*"]
